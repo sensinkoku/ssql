@@ -1,0 +1,5 @@
+generate html
+{
+[{null((asc1)t.id),link(image(t.pict@{width=120,height=120}, "./bimage"),"teamdetail.ssql",t.id)@{width=120,height=120}!link(t.name@{font-size=12}, "teamdetail.ssql",t.id)@{width=120, font-size=10, bgcolor="white"}}@{width=120}],6!
+}@{tablealign = "center", background="bimage/npb.jpg", charset="utf-8"}
+from team t

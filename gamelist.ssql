@@ -1,0 +1,6 @@
+generate html
+{"試合一覧"}!
+[{g.day, link(t.name,"teamdetail.ssql", t.id),g.homescore,"-",g.visitorscore,link(tm.name,"teamdetail.ssql", tm.id),link(s.name,"stadetail.ssql", s.id),
+{link("試合詳細","gamedetail.ssql", g.id)}}@{width=600,height=60}]!
+from game g, team t, team tm, stadium s
+where g.hometeam = t.id and g.visitorteam = tm.id and g.stadium=s.id

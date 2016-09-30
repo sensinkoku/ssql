@@ -1,0 +1,4 @@
+generate html
+{"選手一覧"}!
+[null((asc1)p.id),link(p.name, "playerdetail.ssql",p.id)@{width=200}]!
+from player p

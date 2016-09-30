@@ -1,0 +1,14 @@
+foreach p.id
+generate html
+{p.name}!
+{{"所属球団"@{width=100}, link(t.name,"teamdetail.ssql", t.id)}@{width=300}}!
+{{"生年",p.birthyear@{width=50}}@{width=300}}!
+{"ポジション",[pp.position],}!
+{"通算成績"}!
+{{"打数",r.atbat@{width=50}}@{width=300}}!
+{{"安打",r.hit@{width=50}}@{width=300}}!
+{{"本塁打",r.homerun@{width=50}}@{width=300}}!
+{{"投球回",r.inningpitch@{width=50}}@{width=300}}!
+{{"自責点",r.er@{width=50}}@{width=300}}
+from player p left outer join resultb r on r.player = p.id, team t, playposition pp
+where p.team = t.id and p.id = pp.id group by r.player 

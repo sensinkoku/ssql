@@ -1,0 +1,8 @@
+foreach t.id
+generate html
+{link(t.name, "teamdetail.ssql", t.id)}!
+{"所属選手一覧"}!
+[link(p.name, "playerdetail.ssql", p.id
+)]!
+from team t, player p, result r
+where t.id = p.team

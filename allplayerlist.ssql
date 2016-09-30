@@ -1,0 +1,5 @@
+generate html
+{"全選手一覧"}!
+[null((asc1)p.id),link(p.name, "playerdetail.ssql",p.id)@{width=200},link(t.name, "teamdetail.ssql", t.id)@{width=150}]!
+from player p, team t
+where p.team = t.id

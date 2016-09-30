@@ -1,0 +1,5 @@
+generate html
+{
+[null((asc1)s.id),link(image(s.pict, "./bimage")@{width=200, height=130},"stadetail.ssql",s.id)@{width=150,height=100}!link(s.name, "stadetail.ssql",s.id)@{width=200,bgcolor="white"}],3!
+}@{background="bimage/npb.jpg"}
+from stadium s

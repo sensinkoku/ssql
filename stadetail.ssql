@@ -1,0 +1,12 @@
+foreach s.id
+generate html
+{s.name}!
+{image(s.pict, "./bimage")@{width=400,height=300}}!
+{"都市"@{width=100},s.city}@{width=400}!
+{"アクセス駅"@{width=100},[st.station],}!
+{"収容人数"@{width=100},s.capacity}@{width=400}!
+{"建設年"@{width=100},s.year}@{width=400}!
+{"主な使用球団"}@{width=400}!
+[link(t.name, "teamdetail.ssql", t.id)@{width=400}]!
+from stadium s, team t, franchise f, stastation st
+where t.id = f.team and s.id =f.stadium and s.id = st.id

@@ -1,0 +1,20 @@
+foreach g.id
+generate html
+{
+{"開催地"}!
+{link(s.name, "stadetail.ssql", s.id)}!
+{{"ホームチーム"}@{width=230, align="center"},{"ビジターチーム"}@{width=230, align="center"}}@{width=475}!
+{{link(t.name,"teamdetail.ssql", t.id)}@{width=230},{link(tm.name,"teamdetail.ssql", tm.id)}@{width=230}}@{width=475}!
+{"スコア"}!
+{{g.homescore}@{width=220,align="center"},{"-"}@{width=20,align="center"},{g.visitorscore}@{width=220,align="center"}}@{width=475}!
+{"ホームチーム選手成績"}!
+{"選手名"@{width=150},"打数"@{width=50},"安打"@{width=50},"本塁打"@{width=70},"投球回"@{width=70},"自責点"@{width=70}}@{width=475}!
+[{hp.name@{width=150},hr.atbat@{width=50},hr.hit@{width=50}, hr.homerun@{width=70}, hr.inningpitch@{width=70}, hr.er@{width=71}}]!!
+{"ビジタチーム選手成績"}!
+{"選手名"@{width=150},"打数"@{width=50},"安打"@{width=50},"本塁打"@{width=70},"投球回"@{width=70},"自責点"@{width=70}}@{width=475}!
+[{vp.name@{width=150},vr.atbat@{width=50},vr.hit@{width=50}, vr.homerun@{width=70}, vr.inningpitch@{width=70}, vr.er@{width=71}}]!
+}@{background="bimage/npb.png"}
+from game g, resultb hr, resultb vr, player hp,player vp, team t, team tm, stadium s
+where g.id = hr.game and g.id = vr.game
+and g.stadium =s.id and g.visitorteam = tm.id and g.hometeam = t.id and hp.team = t.id and vp.team = tm.id
+and hr.player = hp.id and vr.player = vp.id

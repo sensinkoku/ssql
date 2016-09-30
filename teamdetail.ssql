@@ -1,0 +1,13 @@
+foreach t.id
+generate html
+{
+{t.name}!
+{image(t.pict, "./bimage")}!
+{link("選手一覧", "teamplaylist.ssql", t.id)}!
+{"本拠地"@{width=100},t.city}@{width=300}!
+{"創立年"@{width=100},t.year}@{width=300}!
+{"使用スタジアム"}!
+[{link(s.name, "stadetail.ssql", s.id)@{width=200},f.role}@{width=300}]!
+}@{background="bimage/npb.png"}
+from team t, stadium s, franchise f
+where t.id = f.team and s.id = f.stadium
